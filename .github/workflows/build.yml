@@ -14,7 +14,7 @@ concurrency:
 # Add this description above jobs:
 env:
   NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
-  
+
 jobs:
   # for Pull Request (exclude merged)
   pullreq_build:
@@ -100,7 +100,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.sha }}-${{ github.run_id }}
-          path: dist.zip
+          #path: dist.zip
+          path: dist
           retention-days: 7
       - name: Webhook
         uses: diverta/workflow-webhook@v3
