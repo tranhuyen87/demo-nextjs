@@ -11,6 +11,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# Add this description above jobs:
+env:
+  NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
+  
 jobs:
   # for Pull Request (exclude merged)
   pullreq_build:
@@ -104,8 +108,3 @@ jobs:
           webhook_url: "https://ohk-test.g.kuroco.app/direct/menu/github/"
           webhook_secret: "e2f9ad8eb9ca3fb9989b3496f2852a02"
           data: '{"single_zip":"1","domain":"ohk-test.g.kuroco-front.app", "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
-# Add this description above jobs:
-env:
-  NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
-
-jobs:
