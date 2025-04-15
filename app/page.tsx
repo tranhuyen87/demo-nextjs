@@ -14,14 +14,7 @@ export default function Home() {
           priority
         />
         <div className="News-link">
-        <Link
-          href={{
-            pathname: '/news',
-            //query: { name: 'test' },
-          }}
-        >
-          News
-        </Link>
+          <Link href="/news/">News</Link>
         </div>
       </main>
       <footer>
