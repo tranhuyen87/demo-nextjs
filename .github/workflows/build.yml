@@ -56,7 +56,7 @@ jobs:
         with:
           name: ${{ steps.get_branch.outputs.sha }}-${{ github.run_id }}
         #  path: dist.zip
-        path: dist
+           path: dist
           retention-days: 1
       - name: Wait for Artifact download
         run: sleep 15
