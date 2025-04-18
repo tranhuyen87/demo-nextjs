@@ -1,5 +1,5 @@
-function generateStaticParams() {}
+//function generateStaticParams() {}
  
-export default function Page() {
-  return <h1>Hello, Blog Post Page!</h1>
+export default function detailPage() {
+  return <h1>Hello, News Detail!</h1>
 }
