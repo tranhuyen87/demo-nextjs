@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "next build && next export"
+    "generate": "next build"
   },
   "dependencies": {
     "@next/env": "^15.3.0",
