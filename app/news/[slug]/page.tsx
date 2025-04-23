@@ -8,13 +8,13 @@ export async function generateStaticParams() {
   }))
 }
 
-async function getData(slug) {
+async function getData(slug: any) {
   //console.log(slug)
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/rcms-api/1/news/details/${slug}`);
   return res.json()
 }
 
-export default async function Page(props) {
+export default async function Page(props: any) {
   const data = await getData(props.params.slug)
   console.log(data)
   return (
