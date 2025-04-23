@@ -19,6 +19,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
 }
 body {
   background: var(--background);
@@ -30,7 +31,6 @@ a {
 }
 .contents {
   padding: 50px 20px;
-  height: 80vh;
   margin: 0 auto;
   max-width: 1000px;
 }
@@ -44,9 +44,122 @@ a {
   text-align: center;
 }
 
+.header .logo {
+  margin: 0 auto;
+  width: 100px;
+}
+
 .footer {
   background: #333;
   padding: 50px 0;
   color: #fff;
+  text-align: center;
+}
+img {
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: all 0.4s;
+}
+.main-ttl {
+  font-size: 22px;
+  padding: 30px 0 50px;
+  text-align: center;
+}
+
+.main-ttl span {
+  border-bottom: 2px dotted #f08300;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+
+.tobira-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.tobira-data {
+  border: 1px solid #f08300;
+  box-shadow: 0px 3px 3px 0px rgba(179, 179, 179, 0.55);
+  padding: 15px;
+  margin-bottom: 15px;
+  width: calc(100%/3 - 42px);
+}
+.tobira-data a {
+  width: 100%;
+}
+.tobira-data .img-box {
+  overflow: hidden;
+  position: relative;
+  padding-top: 66.6%;
+  width: 100%;
+}
+.tobira-data .img-box img {
+  max-width: none;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  font-family: 'object-fit: contain;';
+}
+.tobira-data .tobira-data_ttl {
+  border-bottom: 1px dotted #f08300;
+  font-weight: bold;
+  color: #000;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+.news-contents .date {
+  margin-bottom: 5px;
+  padding-left: 20px;
+  display: inline-block;
+  background: url(../public/images/icon_date.png) no-repeat left center;
+  background-size: 15px auto;
+}
+
+.detail-mainv {
+  width: 100%;
+  height: 567px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+.detail-mainv img {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  font-family: 'object-fit: contain;';
+}
+
+.detail_ttl {
+  border-bottom: 2px dotted #f08300;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.details {
+  margin-top: 50px;
+}
+
+.details .image {
+  margin: 0 auto 20px;
   text-align: center;
 }
