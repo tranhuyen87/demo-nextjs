@@ -34,29 +34,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-
       - name: CI Cache
         uses: actions/cache@v4
         id: node_modules_cache_id
         env:
           cache-name: cache-node-modules
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ steps.get_branch.outputs.branch }}-${{ hashFiles('**/package-lock.json') }}
-                      
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}      
-        run: npm ci  
-      - name: Build
-        run: npm run build
-      - name: Zip artifact for upload
-        run: cd out && zip ../out.zip . -r
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: npm ci
+
+      - name: Generate
+        run: npm run generate
+      #- name: Zip artifact for upload
+      #  run: cd ./.output/public && zip ../../dist.zip . -r
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.get_branch.outputs.sha }}-${{ github.run_id }}
-          path: out.zip
-          retention-days: 7
+          path: dist
+          retention-days: 1
       - name: Wait for Artifact download
         run: sleep 15
       - name: Webhook
@@ -78,31 +77,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-    
       - name: CI Cache
         uses: actions/cache@v4
         id: node_modules_cache_id
         env:
           cache-name: cache-node-modules
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ env.BRANCH }}-${{ hashFiles('**/package-lock.json') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Zip artifact for upload
-        run: cd out && zip ../out.zip . -r
+
+      - name: Generate
+        run: npm run generate
+      #- name: Zip artifact for upload
+      #  run: cd ./.output/public && zip ../../dist.zip . -r
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.sha }}-${{ github.run_id }}
-          path: out.zip
+          path: dist
           retention-days: 7
       - name: Webhook
         uses: diverta/workflow-webhook@v3
         env:
           webhook_url: "https://huyen.g.kuroco.app/direct/menu/github/"
           webhook_secret: "ea8f9ff12d0b022ae61d565b35d11b2f"
-          data: '{"single_zip":"1","domain":"huyen.g.kuroco-front.app","pr":"${{ github.event.issue.pull_request.url }}",  "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
+          data: '{"single_zip":"1","domain":"huyen.g.kuroco-front.app", "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
