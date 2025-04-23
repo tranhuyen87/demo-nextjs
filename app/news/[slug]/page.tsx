@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export async function generateStaticParams() {
   const newsList = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/rcms-api/1/news/list').then((res) => res.json())
-  return newsList.list.map((newsId) => ({
+  return newsList.list.map((newsId: any) => ({
       slug: `${newsId.topics_id}`,
   }))
 }
