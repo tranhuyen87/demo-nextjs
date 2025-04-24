@@ -1,9 +1,11 @@
 // Dummy imports
 import Link from 'next/link'
 import Image from 'next/image'
+import TagList from '@/components/TagList';
 
 async function getData() {  
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/rcms-api/1/news/list`); 
+  //console.log(res)
   if (!res.ok) {  
     throw new Error('Failed to fetch news data');  
   }
@@ -45,6 +47,7 @@ export default async function newsPage() {
             <ul className="tag">
                
             </ul>
+
           </div>
           </div>  
         ))}
