@@ -35,11 +35,7 @@ export default function RootLayout({
         <div className="wrapper">
           <Header/>
           {children}
-          <AuthProvider>
-          <AuthWrapper>
-            
-          </AuthWrapper>
-          </AuthProvider>
+          
           <Footer/>
         </div>
       </body>
