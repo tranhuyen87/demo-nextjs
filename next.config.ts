@@ -1,12 +1,4 @@
-/**
- * @type {import('next').NextConfig}
- */
-module.exports = {  
-  output: 'export',  
-  images: {  
-      unoptimized: true,  
-  },  
-};
+
 
 import type { NextConfig } from "next";
 
