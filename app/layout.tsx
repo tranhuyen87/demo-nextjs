@@ -34,9 +34,10 @@ export default function RootLayout({
       >
         <div className="wrapper">
           <Header/>
+          {children}
           <AuthProvider>
           <AuthWrapper>
-            {children}
+            
           </AuthWrapper>
           </AuthProvider>
           <Footer/>
