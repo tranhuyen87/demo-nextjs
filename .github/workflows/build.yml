@@ -10,8 +10,6 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-env:
-  NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
 
 jobs:
   # for Pull Request (exclude merged)
@@ -33,7 +31,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: "18.x"
 
       - name: CI Cache
         uses: actions/cache@v4
@@ -43,10 +41,10 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ steps.get_branch.outputs.branch }}-${{ hashFiles('**/package-lock.json') }}
-                      
+
       - name: Install dependencies
-        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}      
-        run: npm ci  
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: npm ci
       - name: Build
         run: npm run build
       - name: Zip artifact for upload
@@ -65,7 +63,7 @@ jobs:
           webhook_url: "https://huyen.g.kuroco.app/direct/menu/github/"
           webhook_secret: "ea8f9ff12d0b022ae61d565b35d11b2f"
           data: '{"single_zip":"1","domain":"huyen.g.kuroco-front.app","pr":"${{ github.event.issue.pull_request.url }}",  "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ steps.get_branch.outputs.sha }}"}'
-          
+
   #for Push
   pushed_build:
     name: Build(pushed)
@@ -77,8 +75,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-    
+          node-version: "18.x"
+
       - name: CI Cache
         uses: actions/cache@v4
         id: node_modules_cache_id
