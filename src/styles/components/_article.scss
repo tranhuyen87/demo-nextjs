@@ -1,0 +1,154 @@
+@use '../media_query' as *;
+@use 'heading' as *;
+@use 'text' as *;
+
+.c-article {
+  margin-top: var(--spacing-large);
+  header {
+    @include pc() {
+      padding: var(--spacing-large);
+    }
+    @include sp() {
+      padding: var(--spacing) 0;
+    }
+  }
+  &__detail {
+    &__mainImage {
+      margin: 0;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        @include sp {
+          height: 40vh;
+        }
+      }
+    }
+    &__date {
+      display: block;
+      text-align: right;
+    }
+    &__head {
+      display: flex;
+      @include pc() {
+        justify-content: space-between;
+        margin-top: var(--spacing-large);
+      }
+      @include sp() {
+        flex-direction: column-reverse;
+        margin-top: var(--spacing);
+      }
+    }
+    &__intro {
+      margin: 0;
+      padding-bottom: var(--spacing-large);
+      border-bottom: 1px solid var(--color-border);
+      font-size: var(--font-size-h4);
+      line-height: 2;
+      @include sp() {
+        font-size: var(---font-size-h4-sp);
+      }
+    }
+    &__image {
+      margin: var(--spacing-large) 0 0;
+      figcaption {
+        margin-top: var(--spacing-small);
+        @include pc() {
+          font-size: var(--font-size-small);
+        }
+        @include sp() {
+          font-size: var(--font-size-x-small);
+        }
+      }
+    }
+    &__contents {
+      line-height: 1.7;
+      @include pc() {
+        padding: var(--spacing-large);
+      }
+      @include sp() {
+        padding: var(--spacing) 0;
+      }
+      h1 {
+        @extend .c-heading--lv1;
+      }
+      h2 {
+        @extend %heading;
+        font-size: var(--font-size-h2);
+        margin: var(--spacing) 0;
+        @include sp() {
+          font-size: var(--font-size-h2-sp);
+        }
+      }
+      h3 {
+        @extend %heading;
+        font-size: var(--font-size-h3);
+        margin: var(--spacing) 0;
+        @include sp() {
+          font-size: var(--font-size-h3-sp);
+        }
+      }
+      h4 {
+        @extend %heading;
+        font-size: var(--font-size-h4);
+        margin: var(--spacing) 0;
+        @include sp() {
+          font-size: var(--font-size-h4-sp);
+        }
+      }
+      h5 {
+        @extend %heading;
+        font-size: var(--font-size-h5);
+        margin: var(--spacing) 0;
+        @include sp() {
+          font-size: var(--font-size-h5-sp);
+        }
+      }
+      p:not([class]) {
+        @extend .c-text;
+      }
+      dl:not([class]) {
+        display: flex;
+        border-bottom: 1px solid var(--color-border);
+        dt {
+          flex: 0 0 25%;
+          padding: var(--spacing) 0;
+          color: var(--color-gray);
+        }
+        dd {
+          flex: 0 0 75%;
+          padding: var(--spacing) 0 var(--spacing) var(--spacing);
+        }
+      }
+      a:not([class]) {
+        color: var(--color-primary);
+        text-decoration: underline;
+      }
+      ul,
+      ol {
+        margin: var(--spacing) 0;
+        padding-left: var(--spacing);
+      }
+      ul li {
+        list-style: disc;
+      }
+      ol li {
+        list-style: decimal;
+      }
+      li {
+        padding: var(--spacing-small) 0;
+      }
+      figure {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+    &__block {
+      @include pc() {
+        margin-top: calc(var(--spacing-large) * 2);
+      }
+      @include sp() {
+        margin-top: var(--spacing-large);
+      }
+    }
+  }
+}
