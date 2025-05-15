@@ -5,7 +5,7 @@ export default function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href = `/article?search=${searchTerm}`;
+    window.location.href = `/news?search=${searchTerm}`;
   };
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);

@@ -2,8 +2,8 @@ import getAllContentList from '@/fetch/getAllContentList';
 
 export default async function sitemap() {
   const items = await getAllContentList();
-  const articleDetails = items.map((item) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/article/${item.topics_id}/`,
+  const newsDetails = items.map((item) => ({
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/news/${item.topics_id}/`,
     lastModified: new Date(item.update_ymdhi),
   }));
 
@@ -15,9 +15,9 @@ export default async function sitemap() {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact/`,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/article/`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/news/`,
     },
-    ...articleDetails,
+    ...newsDetails,
     ...featureDetails,
   ];
 }

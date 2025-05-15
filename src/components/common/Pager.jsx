@@ -13,7 +13,7 @@ export default function Pager({ pageInfo, searchParams }) {
       <Link
         className='c-pager__link'
         href={{
-          pathname: '/article',
+          pathname: '/news',
           query: {
             ...searchParams,
             page: toPage,

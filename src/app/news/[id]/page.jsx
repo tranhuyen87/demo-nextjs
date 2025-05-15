@@ -29,13 +29,13 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
   const item = await getDetailsNews(params.id);
-
+  //console.log(item);
   const paths = [
     {
-      href: `/news?topic=${item.contents_type_nm.toLowerCase()}`,
-      label: item.contents_type_ext_col_01,
+      href: `/news/`,
+      label: 'ニュース',
     },
-    { label: '記事詳細' },
+    { label: '詳細' },
   ];
 
   return (

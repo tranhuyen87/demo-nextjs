@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { contentDirectory } from '@/constants/config';
 
-export default function Article({ children }) {
+export default function News({ children }) {
   const searchParams = useSearchParams();
 
   const [params, setParams] = useState({});
@@ -37,7 +37,7 @@ export default function Article({ children }) {
       );
     } else {
       setSearchKeyWord('');
-      setContent(contentDirectory.article);
+      setContent(contentDirectory.news);
     }
 
     const params = Array.from(searchParams.entries()).reduce(

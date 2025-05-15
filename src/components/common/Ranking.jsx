@@ -31,7 +31,7 @@ export default function Ranking() {
           {data &&
             data.map((item, index) => (
               <li className='c-media__item' key={index}>
-                <Link href={`/article/${item.topics_id}`} className='c-media'>
+                <Link href={`/news/${item.topics_id}`} className='c-media'>
                   <span className='c-media__image__badge'>{index + 1}</span>
                   <div className='c-media__image'>
                     <Image
