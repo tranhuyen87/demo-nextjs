@@ -5,7 +5,7 @@ import PageTitle from '@/components/common/PageTitle';
 import Pager from '@/components/common/Pager';
 import CardListNew from '@/components/ui/CardListNews';
 import getContentList from '@/fetch/getContentList';
-import getTagName from '@/fetch/getTagName';
+import getTagArea from '@/fetch/getTagArea';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { contentDirectory } from '@/constants/config';
@@ -31,7 +31,7 @@ export default function News({ children }) {
       setSearchKeyWord(searchParams.get('search'));
     } else if (searchParams.get('tag_id')) {
       setContent(contentDirectory.search);
-      fetchTagName(
+      fetchTagArea(
         searchParams.get('tag_category_id'),
         searchParams.get('tag_id'),
       );
@@ -46,8 +46,8 @@ export default function News({ children }) {
     );
     setParams(params);
 
-    async function fetchTagName(categoryid, id) {
-      const data = await getTagName(categoryid, id);
+    async function fetchTagArea(categoryid, id) {
+      const data = await getTagArea(categoryid, id);
       setSearchKeyWord('#' + data?.[0]?.tag_nm);
     }
 

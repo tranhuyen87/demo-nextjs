@@ -1,12 +1,11 @@
 'use client';
 
 import DetailBody from '@/components/section/twoColumn/DetailBody';
-import Banner from '@/components/common/Banner';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import TagArea from '@/components/common/TagArea';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
-import getArticlePreview from '@/fetch/getArticlePreview';
+import getNewsPreview from '@/fetch/getNewsPreview';
 
 export default function Page() {
   return (
@@ -25,14 +24,14 @@ function PreviewArticle() {
   useEffect(() => {
     const articleInfo = async () => {
       try {
-        const info = await getArticlePreview(preview_token);
+        const info = await getNewsPreview(preview_token);
         setData(info);
         setPaths([
           {
-            href: `/article?topic=${info.contents_type_nm.toLowerCase()}`,
-            label: info.contents_type_ext_col_01,
+            href: `/news?topic=${info.contents_type_nm.toLowerCase()}`,
+            label: info.contents_type_nm,
           },
-          { label: '記事詳細' },
+          { label: '詳細' },
         ]);
         setParams({
           id: info.topics_id,
@@ -55,7 +54,6 @@ function PreviewArticle() {
           </div>
         </div>
         <div className='l-container--col-2__side'>
-          <Banner />
           <TagArea />
         </div>
       </div>

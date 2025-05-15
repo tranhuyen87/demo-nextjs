@@ -7,10 +7,6 @@ export const category = {
 };
 
 export const contentDirectory = {
-  article: {
-    title: '記事',
-    subtitle: 'ARTICLE',
-  },
   news: {
     title: 'ニュース',
     subtitle: 'News',
