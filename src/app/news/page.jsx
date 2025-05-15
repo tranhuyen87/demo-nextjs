@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import Banner from '@/components/common/Banner';
 import TagArea from '@/components/common/TagArea';
 import News from '@/components/section/news/News';
 import { METADATA } from '@/constants/config';

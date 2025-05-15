@@ -15,9 +15,6 @@ const Footer = () => {
             <li>
               <Link href='/contact/'>お問い合わせ</Link>
             </li>
-            <li>
-              <Link href='/sitemap.xml'>サイトマップ</Link>
-            </li>
           </ul>
           <ul className='l-footer__nav__list -sns'>
             <li>
