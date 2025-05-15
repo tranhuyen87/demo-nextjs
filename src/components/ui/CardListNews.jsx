@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function CardList({ data }) {
+export default function CardListNews({ data }) {
   if (!data || !Array.isArray(data)) {
     return null;
   }

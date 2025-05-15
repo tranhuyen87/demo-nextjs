@@ -3,7 +3,7 @@
 import Breadcrumb from '@/components/common/Breadcrumb';
 import PageTitle from '@/components/common/PageTitle';
 import Pager from '@/components/common/Pager';
-import CardList from '@/components/ui/CardList';
+import CardListNew from '@/components/ui/CardListNews';
 import getContentList from '@/fetch/getContentList';
 import getTagName from '@/fetch/getTagName';
 import { useSearchParams } from 'next/navigation';
@@ -102,7 +102,7 @@ export default function Article({ children }) {
               {list?.length === 0 && <p>記事がありません。</p>}
               {list?.length > 0 && (
                 <>
-                  <CardList data={list} />
+                  <CardListNew data={list} />
                   {Object.keys(pageInfo).length > 0 && (
                     <Pager pageInfo={pageInfo} searchParams={params} />
                   )}

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import getDetails from '@/fetch/getDetails';
+import getDetailsNews from '@/fetch/getDetailsNews';
 import postFavorite from '@/fetch/postFavorite';
 import deleteFavorite from '@/fetch/deleteFavorite';
 import { useUser } from '@/contexts/user';
@@ -39,7 +39,7 @@ const DetailBody = ({ data, params }) => {
   useEffect(() => {
     const updateDataList = async () => {
       try {
-        const data2 = await getDetails(params.id);
+        const data2 = await getDetailsNews(params.id);
         setData(data2);
         setLikesCount(data2.favorite_cnt);
         setIsLiked(data2.my_favorite_flg);
@@ -74,7 +74,7 @@ const DetailBody = ({ data, params }) => {
               {data.tags.map((tag, index) => (
                 <li className='c-tag__item' key={index}>
                   <Link
-                    href={`/article?tag_category_id=${tag.tag_category_id}&tag_id=${tag.tag_id}`}
+                    href={`/news?tag_category_id=${tag.tag_category_id}&tag_id=${tag.tag_id}`}
                     className='c-tag'
                   >
                     #{tag.tag_nm}

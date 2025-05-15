@@ -1,12 +1,11 @@
 import DetailBody from '@/components/section/twoColumn/DetailBody';
 import getAllContentList from '@/fetch/getAllContentList';
-import getDetails from '@/fetch/getDetails';
-import Banner from '@/components/common/Banner';
+import getDetailsNews from '@/fetch/getDetailsNews';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import TagArea from '@/components/common/TagArea';
 
 export async function generateMetadata({ params }) {
-  const item = await getDetails(params.id);
+  const item = await getDetailsNews(params.id);
   return {
     title: item.subject,
     description: item.introduction,
@@ -29,11 +28,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const item = await getDetails(params.id);
+  const item = await getDetailsNews(params.id);
 
   const paths = [
     {
-      href: `/article?topic=${item.contents_type_nm.toLowerCase()}`,
+      href: `/news?topic=${item.contents_type_nm.toLowerCase()}`,
       label: item.contents_type_ext_col_01,
     },
     { label: '記事詳細' },
@@ -51,7 +50,6 @@ export default async function Page({ params }) {
       </div>
       <div className='l-container--large'>
         <TagArea />
-        <Banner />
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ export default function Page() {
       <Suspense>
         <Article />
         <div className='l-container--large'>
-          <Feature />
           <TagArea />
           <Banner />
         </div>

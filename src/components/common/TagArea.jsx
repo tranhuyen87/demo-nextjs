@@ -27,7 +27,7 @@ export default function TagArea() {
         {data.map((tag, index) => (
           <li key={index} className='c-tag__item'>
             <Link
-              href={`/article?tag_category_id=${tag.tag_category_id}&tag_id=${tag.tag_id}`}
+              href={`/news?tag_category_id=${tag.tag_category_id}&tag_id=${tag.tag_id}`}
               className='c-tag'
             >
               #{tag.tag_nm}
