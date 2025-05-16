@@ -21,31 +21,37 @@ export default function CardListNews({ data }) {
                   src={card.image.url}
                   fill
                 />
-                <span className='c-card__date'>{card.ymd}</span>
               </div>
               <h3 className='c-card__heading'>{card.subject}</h3>
-              <p className='c-card__text'>{card.introduction}</p>
-              <div className='c-card__bottom'>
-                <div className='c-tag__outer'>
-                  <svg className='c-tag__icon c-svg'>
+            </Link>
+            <div>
+              <span className='c-card__date'>{card.ymd}</span>
+            </div>
+            {/* <p className='c-card__text'>{card.introduction}</p> */}
+            <div className='c-card__bottom'>
+              <div className='c-tag__outer'>
+                {/* <svg className='c-tag__icon c-svg'>
                     <use href='/svg/icon.svg#icon-tag' />
-                  </svg>
-                  <ul className='c-tag__list'>
-                    {card.tags.map((tag, tag_index) => (
-                      <li key={tag_index} className='c-tag__item'>
+                  </svg> */}
+                <ul className='c-tag__list'>
+                  {card.tags.map((tag, tag_index) => (
+                    <li key={tag_index} className='c-tag__item'>
+                      <Link
+                        href={`/news?tag_category_id=${tag.tag_category_id}&tag_id=${tag.tag_id}`}
+                      >
                         #{tag.tag_nm}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {/* <p className='c-favorite'>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* <p className='c-favorite'>
                   <svg className='c-favorite__icon c-svg'>
                     <use href='/svg/icon.svg#icon-heart' />
                   </svg>
                   <span>{card.favorite_cnt}</span>
                 </p> */}
-              </div>
-            </Link>
+            </div>
           </li>
         ))}
       </ul>

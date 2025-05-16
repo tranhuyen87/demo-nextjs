@@ -5,11 +5,12 @@
 .c-article {
   margin-top: var(--spacing-large);
   header {
+    padding: 30px 0;
     @include pc() {
-      padding: var(--spacing-large);
+      // padding: var(--spacing-large);
     }
     @include sp() {
-      padding: var(--spacing) 0;
+      // padding: var(--spacing) 0;
     }
   }
   &__detail {
@@ -25,7 +26,9 @@
     }
     &__date {
       display: block;
-      text-align: right;
+      padding-left: 20px;
+      background: url(/images/icon_date.png) no-repeat left center;
+      background-size: 15px auto;
     }
     &__head {
       display: flex;
@@ -60,14 +63,22 @@
         }
       }
     }
+    .c-heading--lv1 {
+      border-bottom: 2px dotted var(--color-orange);
+      padding-bottom: 10px;
+      margin-top: 50px;
+      text-align: center;
+    }
     &__contents {
       line-height: 1.7;
+      padding: 0 0;
       @include pc() {
-        padding: var(--spacing-large);
+        // padding: var(--spacing-large);
       }
       @include sp() {
-        padding: var(--spacing) 0;
+        // padding: var(--spacing) 0;
       }
+
       h1 {
         @extend .c-heading--lv1;
       }
@@ -144,10 +155,10 @@
     }
     &__block {
       @include pc() {
-        margin-top: calc(var(--spacing-large) * 2);
+        // margin-top: calc(var(--spacing-large) * 2);
       }
       @include sp() {
-        margin-top: var(--spacing-large);
+        // margin-top: var(--spacing-large);
       }
     }
   }

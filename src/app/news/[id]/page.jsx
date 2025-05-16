@@ -48,9 +48,9 @@ export default async function Page({ params }) {
           </main>
         </div>
       </div>
-      <div className='l-container--large'>
+      {/* <div className='l-container--large'>
         <TagArea />
-      </div>
+      </div> */}
     </div>
   );
 }
